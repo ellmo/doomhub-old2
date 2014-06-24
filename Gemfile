@@ -30,7 +30,5 @@ end
 group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'coveralls', require: false
-  gem 'sextant'
-  gem 'simplecov', require: false
+  gem 'minitest-rails'
 end
