@@ -18,7 +18,6 @@ gem 'pry-rails'
 gem 'rabl'
 gem 'redcarpet'
 gem 'sass'
-gem 'slim'
 gem 'yell-rails'
 
 # Gems used only for assets and not required
