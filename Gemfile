@@ -7,6 +7,7 @@ gem 'aws-sdk'
 gem 'devise'
 gem 'dotenv-rails'
 gem 'execjs'
+gem 'foundation-rails'
 gem 'friendly_id', '~> 5.0.0'
 gem 'inherited_resources'
 gem 'kaminari'
@@ -22,7 +23,7 @@ gem 'yell-rails'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'foundation-rails'
+
   gem 'sass-rails'
   gem 'uglifier'
 end
