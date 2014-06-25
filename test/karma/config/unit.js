@@ -15,7 +15,6 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       APPLICATION_SPEC,
-      'app/assets/javascripts/angular/*/*.{coffee,js}',
       'test/javascripts/**/*_test.{coffee,js}'
     ],
 
