@@ -68,5 +68,11 @@ describe User do
       User.all.must_include user
       User.deleted.wont_include user
     end
+
+    it 'can be really destroyed' do
+      user.really_destroy!
+      User.all.wont_include user
+      User.deleted.wont_include user
+    end
   end
 end
