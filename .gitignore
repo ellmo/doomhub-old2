@@ -6,6 +6,7 @@ _rspec.html
 config/database.yml
 config/initializers/secret_token.rb
 config/secret.yml
+node_modules
 coverage/*
 db/*.sqlite3
 log/*.log
