@@ -32,4 +32,5 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'guard-minitest'
   gem 'minitest-rails'
+  gem 'minitest-reporters'
 end
