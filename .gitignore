@@ -15,3 +15,5 @@ public/system/*
 public/uploads/*
 tmp/
 uploads/*
+# Ignore application configuration
+/config/application.yml
