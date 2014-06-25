@@ -15,6 +15,15 @@
 //= require foundation
 //= require vendor/angular
 //= require vendor/angular-route
-//= require_tree .
+//= require angular/app
+//= require_tree ./angular
 
-$(function(){ $(document).foundation(); });
+
+$(function(){
+  Foundation.set_namespace = function(){
+    // workaround for non-css browsers, like PhantomJS
+    var namespace = false;
+    this.global.namespace = ( namespace === undefined || /false/i.test(namespace) ) ? '' : namespace;
+  };
+  $(document).foundation();
+});
