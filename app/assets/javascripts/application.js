@@ -20,10 +20,6 @@
 
 
 $(function(){
-  Foundation.set_namespace = function(){
-    // workaround for non-css browsers, like PhantomJS
-    var namespace = false;
-    this.global.namespace = ( namespace === undefined || /false/i.test(namespace) ) ? '' : namespace;
-  };
+  Foundation.global.namespace = '';
   $(document).foundation();
 });
