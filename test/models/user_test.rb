@@ -1,7 +1,7 @@
 require "test_helper"
 
 describe User do
-  describe '::create' do
+  describe 'create' do
     it 'valid with unique email and login' do
       user = User.new email: 'example@email.com', password: 'asdasd', login: 'qwerty'
       user.valid?.must_equal true
@@ -48,6 +48,25 @@ describe User do
         user.valid?.wont_equal true
         user.errors.must_include :password
       end
+    end
+  end
+
+  describe 'destroy' do
+    let(:user){ users(:zenon) }
+    before do
+      user.destroy
+    end
+
+    it 'doesnt get deleted completely' do
+      user.destroyed?.must_equal true
+      User.all.wont_include user
+      User.deleted.must_include user
+    end
+
+    it 'can be restored' do
+      user.restore
+      User.all.must_include user
+      User.deleted.wont_include user
     end
   end
 end
