@@ -75,4 +75,16 @@ describe User do
       User.deleted.wont_include user
     end
   end
+
+  describe 'find_for_database_authentication' do
+    it "can be found for authentication using email" do
+      user = User.find_for_database_authentication login: "ellmo"
+      user.must_equal users(:ellmo)
+    end
+
+    it "can be found for authentication using email" do
+      user = User.find_for_database_authentication login: "ellmo@ellmo.net"
+      user.must_equal users(:ellmo)
+    end
+  end
 end
