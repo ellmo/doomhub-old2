@@ -20,4 +20,17 @@ class User < ActiveRecord::Base
 
   validates :login, uniqueness: {case_sensitive: false}, presence: true
   validates :email, uniqueness: {case_sensitive: false}
+
+#==========
+#= METHODS
+#========
+
+  def admin?
+    admin_level > 0
+  end
+
+  def superadmin?
+    admin_level > 1
+  end
+
 end

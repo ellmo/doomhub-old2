@@ -99,4 +99,17 @@ describe User do
       user.must_equal users(:ellmo)
     end
   end
+
+  describe 'admin and superadmin helpers' do
+    it 'should properly interpret admin_level' do
+      users(:ellmo).admin?.must_equal false
+      users(:ellmo).superadmin?.must_equal false
+
+      users(:admin).admin?.must_equal true
+      users(:admin).superadmin?.must_equal false
+
+      users(:superadmin).admin?.must_equal true
+      users(:superadmin).superadmin?.must_equal true
+    end
+  end
 end
