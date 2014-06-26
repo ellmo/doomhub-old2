@@ -2,6 +2,12 @@ class User < ActiveRecord::Base
 
   acts_as_paranoid
 
+#========
+#= ASSOC
+#======
+
+  has_many :projects
+
 #=========
 #= DEVISE
 #=======
