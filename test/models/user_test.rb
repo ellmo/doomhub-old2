@@ -16,7 +16,7 @@ describe User do
       end
 
       it 'NOT valid with non-unique email' do
-        user = User.new email: 'zenon@szerman.pl', password: 'asdasd', login: 'qwerty'
+        user = User.new email: 'ellmo@ellmo.net', password: 'asdasd', login: 'qwerty'
         user.valid?.wont_equal true
         user.errors.must_include :email
       end
@@ -30,7 +30,7 @@ describe User do
       end
 
       it 'NOT valid with non-unique login' do
-        user = User.new email: 'example@email.com', password: 'asdasd', login: 'zenon'
+        user = User.new email: 'example@email.com', password: 'asdasd', login: 'ellmo'
         user.valid?.wont_equal true
         user.errors.must_include :login
       end
@@ -52,7 +52,7 @@ describe User do
   end
 
   describe 'destroy' do
-    let(:user){ users(:zenon) }
+    let(:user){ users(:ellmo) }
     before do
       user.destroy
     end

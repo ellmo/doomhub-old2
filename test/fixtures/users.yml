@@ -1,4 +1,4 @@
-zenon:
-  email: 'zenon@szerman.pl'
+ellmo:
+  email: 'ellmo@ellmo.net'
   encrypted_password: <%= User.new.send(:password_digest, 'asdasd') %>
-  login: zenon
+  login: ellmo
