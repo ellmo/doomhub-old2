@@ -20,6 +20,12 @@ describe User do
         user.valid?.wont_equal true
         user.errors.must_include :email
       end
+
+      it 'NOT valid with non-unique email (case-insensitive)' do
+        user = User.new email: 'ELLMO@ellmo.NET', password: 'asdasd', login: 'qwerty'
+        user.valid?.wont_equal true
+        user.errors.must_include :email
+      end
     end
 
     describe 'login validations' do
@@ -31,6 +37,12 @@ describe User do
 
       it 'NOT valid with non-unique login' do
         user = User.new email: 'example@email.com', password: 'asdasd', login: 'ellmo'
+        user.valid?.wont_equal true
+        user.errors.must_include :login
+      end
+
+      it 'NOT valid with non-unique login (case-insensitive)' do
+        user = User.new email: 'example@email.com', password: 'asdasd', login: 'eLLmo'
         user.valid?.wont_equal true
         user.errors.must_include :login
       end
