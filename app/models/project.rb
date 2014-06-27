@@ -5,6 +5,7 @@ class Project < ActiveRecord::Base
 #======
 
   belongs_to :user
+  has_many :uploads, as: :uploadable
 
 #==============
 #= FRIENDLY_ID
