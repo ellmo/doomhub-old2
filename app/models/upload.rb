@@ -22,7 +22,7 @@ class Upload < ActiveRecord::Base
 #= VALIDATIONS
 #============
 
-  validate :check_attachment
+  validate :check_attachment, if: ->(u) { u.archive_file_name.present? }
 
   ALLOWED_MIMES = ["application/zip", "application/x-7z-compressed", "application/x-rar-compressed"]
 

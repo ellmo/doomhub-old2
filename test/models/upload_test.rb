@@ -5,35 +5,46 @@ describe Upload do
   let(:project){ projects :dtwid }
 
   describe 'create' do
-    it 'is valid for zip files' do
+    it 'invalid without attached archive file' do
       upload = project.uploads.build
-      upload.archive = fixture_file_upload('uploads/wadfile.zip')
-      upload.valid?.must_equal true
+      upload.valid?.must_equal false
+      upload.errors.must_include :archive
     end
 
-    it 'is valid for rar files' do
-      upload = project.uploads.build
-      upload.archive = fixture_file_upload('uploads/wadfile.rar')
-      upload.valid?.must_equal true
-    end
+    describe 'MIME validation' do
+      it 'is valid for zip files' do
+        upload = project.uploads.build
+        upload.archive = fixture_file_upload('uploads/wadfile.zip')
+        upload.valid?.must_equal true
+      end
 
-    it 'is valid for 7z files' do
-      upload = project.uploads.build
-      upload.archive = fixture_file_upload('uploads/wadfile.7z')
-      upload.valid?.must_equal true
-    end
+      it 'is valid for rar files' do
+        upload = project.uploads.build
+        upload.archive = fixture_file_upload('uploads/wadfile.rar')
+        upload.valid?.must_equal true
+      end
 
-    it 'is NOT valid for image files' do
-      upload = project.uploads.build
+      it 'is valid for 7z files' do
+        upload = project.uploads.build
+        upload.archive = fixture_file_upload('uploads/wadfile.7z')
+        upload.valid?.must_equal true
+      end
 
-      upload.archive = fixture_file_upload('uploads/ellmo.png')
-      upload.valid?.must_equal false
+      it 'is NOT valid for image files' do
+        upload = project.uploads.build
 
-      upload.archive = fixture_file_upload('uploads/ellmo.jpg')
-      upload.valid?.must_equal false
+        upload.archive = fixture_file_upload('uploads/ellmo.png')
+        upload.valid?.must_equal false
+        upload.errors.must_include :archive
 
-      upload.archive = fixture_file_upload('uploads/ellmo.tiff')
-      upload.valid?.must_equal false
+        upload.archive = fixture_file_upload('uploads/ellmo.jpg')
+        upload.valid?.must_equal false
+        upload.errors.must_include :archive
+
+        upload.archive = fixture_file_upload('uploads/ellmo.tiff')
+        upload.valid?.must_equal false
+        upload.errors.must_include :archive
+      end
     end
   end
 
