@@ -25,3 +25,10 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
 end
+
+Minitest.after_run do
+  dir = File.join(Rails.root, 'tmp', 'test-uploads')
+  if File.directory? dir
+    FileUtils.rm_rf dir
+  end
+end
