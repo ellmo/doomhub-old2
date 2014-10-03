@@ -15,7 +15,7 @@ class Upload < ActiveRecord::Base
                     keep_old_files: true,
                     url: ':path',
                     path: ENV['PAPERCLIP_UPLOAD_ARCHIVE_PATH']
-  do_not_validate_attachment_file_type :archive
+  do_not_validate_attachment_file_type :archive #doing this manually
   validates_attachment_presence :archive
 
 #==============
