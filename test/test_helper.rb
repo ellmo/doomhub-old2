@@ -1,4 +1,10 @@
 ENV["RAILS_ENV"] = "test"
+
+if ENV['COVERALLS']
+  require 'coveralls'
+  Coveralls.wear!
+end
+
 require File.expand_path("../../config/environment", __FILE__)
 require "rails/test_help"
 require "minitest/reporters"

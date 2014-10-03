@@ -30,6 +30,7 @@ end
 group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'coveralls', require: false
   gem 'guard-minitest'
   gem 'minitest-spec-rails'
   gem 'minitest-reporters'
