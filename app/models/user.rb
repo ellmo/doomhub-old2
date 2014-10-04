@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 #= ASSOC
 #======
 
+  has_one :author
   has_many :projects
 
 #=========
@@ -26,6 +27,18 @@ class User < ActiveRecord::Base
 
   validates :login, uniqueness: {case_sensitive: false}, presence: true
   validates :email, uniqueness: {case_sensitive: false}
+
+#============
+#= CALLBACKS
+#==========
+
+  after_create :add_author
+
+  def add_author
+    self.create_author name: self.login
+  end
+
+  private :add_author
 
 #==========
 #= METHODS

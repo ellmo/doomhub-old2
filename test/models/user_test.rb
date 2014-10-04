@@ -2,10 +2,14 @@ require "test_helper"
 
 describe User do
   describe 'create' do
+    let(:user) { User.create email: 'example@email.com', password: 'asdasd', login: 'qwerty' }
+
     it 'valid with unique email and login' do
-      user = User.new email: 'example@email.com', password: 'asdasd', login: 'qwerty'
-      user.valid?.must_equal true
-      user.errors.must_be_empty
+      user.id.wont_equal nil
+    end
+
+    it 'has an author' do
+      user.author.wont_equal nil
     end
 
     describe 'email validations' do
@@ -61,6 +65,20 @@ describe User do
         user.errors.must_include :password
       end
     end
+
+    # describe 'author validations' do
+    #   it 'NOT valid without associated author' do
+    #     user = User.new email: 'example@email.com', login: 'qwerty', password: 'asdasd'
+    #     user.valid?.wont_equal true
+    #     user.errors.must_include :password
+    #   end
+
+    #   it 'NOT valid with password shorder than 3 chars' do
+    #     user = User.new email: 'example@email.com', password: 'as', login: 'qwerty'
+    #     user.valid?.wont_equal true
+    #     user.errors.must_include :password
+    #   end
+    # end
   end
 
   describe 'destroy' do

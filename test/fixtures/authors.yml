@@ -1,0 +1,14 @@
+ellmo:
+  name: ellmo
+  user: ellmo
+
+admin:
+  name: admin
+  user: admin
+
+superadmin:
+  name: superadmin
+  user: superadmin
+
+shaun:
+  name: Shaun
