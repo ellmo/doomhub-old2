@@ -30,6 +30,19 @@ class ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...
 end
 
+module MiniTest::Assertions
+  def asserts_inclusion_of_all(includees, array)
+    assert (includees - array) == []
+  end
+
+  def asserts_inclusion_of_none(includees, array)
+    assert (array - includees) == array
+  end
+end
+
+Array.infect_an_assertion :asserts_inclusion_of_all, :must_include_all
+Array.infect_an_assertion :asserts_inclusion_of_none, :must_include_none
+
 Minitest.after_run do
   dir = File.join(Rails.root, 'tmp', 'test-uploads')
   if File.directory? dir

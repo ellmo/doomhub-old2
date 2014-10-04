@@ -18,4 +18,12 @@ describe Author do
       authors(:ellmo).login.must_equal 'ellmo'
     end
   end
+
+  describe '.unregistered' do
+    it 'returns authors, who have no user registered' do
+      results = Author.unregistered
+      results.must_include_all [authors(:shaun), authors(:emily)]
+      results.must_include_none [authors(:ellmo), authors(:admin), authors(:superadmin)]
+    end
+  end
 end
