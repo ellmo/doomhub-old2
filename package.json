@@ -1,7 +1,11 @@
 {
   "name": "doomhub",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ellmo/doomhub.git"
+  },
   "dependencies" : {
-    "karma":  ">= 0.10.9",
+    "karma": ">= 0.10.9",
     "karma-jasmine": "0.1.5",
     "karma-phantomjs-launcher": ">= 0.1.4",
     "phantomjs": ">= 1.9"
