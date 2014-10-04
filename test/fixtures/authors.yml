@@ -2,6 +2,10 @@ ellmo:
   name: notellmo
   user: ellmo
 
+sgt_mark:
+  name: Sgt Mark IV
+  user: sgt_mark
+
 admin:
   name: admin
   user: admin

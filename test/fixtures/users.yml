@@ -3,6 +3,11 @@ ellmo:
   encrypted_password: <%= User.new.send(:password_digest, 'asdasd') %>
   login: ellmo
 
+sgt_mark:
+  email: 'sgt@mark.info'
+  encrypted_password: <%= User.new.send(:password_digest, 'asdasd') %>
+  login: mark
+
 admin:
   email: 'admin@ellmo.net'
   encrypted_password: <%= User.new.send(:password_digest, 'asdasd') %>

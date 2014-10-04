@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 
   has_one :author
   has_many :projects
+  has_many :maps, through: :author
 
 #=========
 #= DEVISE

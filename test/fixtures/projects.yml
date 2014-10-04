@@ -3,3 +3,9 @@ dtwid:
   user: ellmo
   url_name: Doom The Way id Did
   slug: doom-the-way-id-did
+
+brutal_doom:
+  name: Brutal Doom
+  user: sgt_mark
+  url_name: Brutal Doom
+  slug: brutal-doom
