@@ -11,6 +11,6 @@ script:
 
 before_script:
   - cp config/database.ci.yml config/database.yml
-  - cp -f config/initializers/devise.ci config/initializers/devise.rb
+  - cp config/application.ci.yml config/application.yml
   - cp config/initializers/secret_token.ci.rb config/initializers/secret_token.rb
   - bundle exec rake db:create RAILS_ENV=test
