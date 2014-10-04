@@ -14,7 +14,7 @@ class Image < ActiveRecord::Base
   has_attached_file :image,
                     keep_old_files: true,
                     url: ':path',
-                    path: ENV['PAPERCLIP_IMAGE_ARCHIVE_PATH']
+                    path: ENV['PAPERCLIP_IMAGE_IMAGE_PATH']
   do_not_validate_attachment_file_type :image
   validates_attachment_presence :image
 
@@ -36,7 +36,7 @@ class Image < ActiveRecord::Base
     attachment.instance.imageable_id
   end
 
-  Paperclip.interpolates :name do |attachment, style|
+  Paperclip.interpolates :imageable_name do |attachment, style|
     (attachment.instance.name || attachment.instance.image_file_name).parameterize
   end
 
@@ -53,13 +53,13 @@ class Image < ActiveRecord::Base
 #= CALLBACKS
 #==========
   before_create :save_geometry
-  before_save :generate_name, unless: ->(u) {u.name.present?}
+  before_save :generate_name, unless: ->(img) {img.name.present?}
 
   def save_geometry
     geo = get_geometry
     if geo
-      self.width = geo.width
-      self.height = geo.height
+      self.width = geo.width.to_i
+      self.height = geo.height.to_i
     end
   end
 
@@ -72,7 +72,7 @@ class Image < ActiveRecord::Base
   end
 
   def generate_name
-    self.name = archive_file_name.parameterize
+    self.name = image_file_name.parameterize
   end
 
 end

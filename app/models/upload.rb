@@ -36,7 +36,7 @@ class Upload < ActiveRecord::Base
     attachment.instance.uploadable_id
   end
 
-  Paperclip.interpolates :name do |attachment, style|
+  Paperclip.interpolates :uploadable_name do |attachment, style|
     (attachment.instance.name || attachment.instance.archive_file_name).parameterize
   end
 

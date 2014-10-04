@@ -4,6 +4,6 @@ defaults: &defaults
 test:
   SECRET_KEY_BASE: aadb06820dc9e3016ef6704943f9051ca8bd7441d88ff4154eff2203a3c521bfc34969205b3f28bf3f997b2932c6e93351f7577f350f31d6a8f58f4b7dbe8562
   SECRET_KEY_DEVISE: aadb06820dc9e3016ef6704943f9051ca8bd7441d88ff4154eff2203a3c521bfc34969205b3f28bf3f997b2932c6e93351f7577f350f31d6a8f58f4b7dbe8562
-  PAPERCLIP_UPLOAD_ARCHIVE_PATH: "tmp/test-uploads/:uploadable_type/:uploadable_id/archives/:name-:id.:extension"
-  PAPERCLIP_IMAGE_ARCHIVE_PATH: "tmp/test-uploads/:imageable_type/:imageable__id/images/:name-:id.:extension"
+  PAPERCLIP_UPLOAD_ARCHIVE_PATH: "tmp/test-uploads/:uploadable_type/:uploadable_id/archives/:uploadable_name-:id.:extension"
+  PAPERCLIP_IMAGE_IMAGE_PATH: "tmp/test-uploads/:imageable_type/:imageable_id/images/:imageable_name-:id.:extension"
 
