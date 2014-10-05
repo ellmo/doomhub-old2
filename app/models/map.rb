@@ -32,8 +32,7 @@ class Map < ActiveRecord::Base
   before_save :default_lump, unless: ->(m) {m.lump.present?}
 
   def generate_default_url_name
-    binding.pry
-    url_name = name
+    self.url_name = name
     self.send :set_slug
   end
 
@@ -43,7 +42,7 @@ class Map < ActiveRecord::Base
   end
 
   def default_lump
-    lump = 'E1M1'
+    self.lump = 'E1M1'
   end
 
 end
