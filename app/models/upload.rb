@@ -1,4 +1,5 @@
 class Upload < ActiveRecord::Base
+  include MimeChecker
 
 #========
 #= ASSOC
@@ -41,13 +42,23 @@ class Upload < ActiveRecord::Base
   end
 
   def check_attachment
-    if (MIME::Types.type_for(archive_file_name).map(&:to_s) & ALLOWED_MIMES).empty?
+    check_attachment_mime
+    check_attachment_size
+  end
+
+  def check_attachment_mime
+    if check_mimes(archive_file_name, ALLOWED_MIMES).empty?
       errors[:archive] << "File must be a valid zip / rar / 7z achive"
     end
+  end
+
+  def check_attachment_size
     if archive.size > 1.megabyte
       errors[:archive] << "File must not be over 1 MB"
     end
   end
+
+  private :check_attachment, :check_attachment_mime, :check_attachment_size
 
 #============
 #= CALLBACKS
