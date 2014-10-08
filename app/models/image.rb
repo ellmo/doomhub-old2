@@ -1,4 +1,5 @@
 class Image < ActiveRecord::Base
+  include MimeChecker
 
 #========
 #= ASSOC
@@ -41,13 +42,23 @@ class Image < ActiveRecord::Base
   end
 
   def check_attachment
-    if (MIME::Types.type_for(image_file_name).map(&:to_s) & ALLOWED_MIMES).empty?
-      errors[:image] << "File must be a valid JPG / PNG / TIFF image"
+    check_attachment_mime
+    check_attachment_size
+  end
+
+  def check_attachment_mime
+    if check_mimes(image_file_name, ALLOWED_MIMES).empty?
+      errors[:image] << "File must be a valid png / jpg / tiff image."
     end
+  end
+
+  def check_attachment_size
     if image.size > 1.megabyte
       errors[:image] << "File must not be over 1 MB"
     end
   end
+
+  private :check_attachment, :check_attachment_mime, :check_attachment_size
 
 #============
 #= CALLBACKS
