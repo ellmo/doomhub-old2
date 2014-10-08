@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/ellmo/doomhub.svg?branch=master)](https://travis-ci.org/ellmo/doomhub)
 [![Coverage Status](https://img.shields.io/coveralls/ellmo/doomhub.svg)](https://coveralls.io/r/ellmo/doomhub?branch=master)
+[![Code Climate](https://codeclimate.com/github/ellmo/doomhub/badges/gpa.svg)](https://codeclimate.com/github/ellmo/doomhub)
 
 This is the primary repository of the new [Doomhub.com](http://doomhub.com) project.
 Old repository (using Rails3 and Backbone.js is [here](https://github.com/ellmo/doomhub-old)
