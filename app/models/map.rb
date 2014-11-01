@@ -28,8 +28,6 @@ class Map < ActiveRecord::Base
 #= CALLBACKS
 #==========
 
-  before_save :trim_spaces, if: ->(m) {m.new_record? || m.name_changed?}
-  before_save :generate_default_url_name, unless: ->(m) {m.url_name.present?}
   before_save :default_lump, unless: ->(m) {m.lump.present?}
 
   def default_lump
