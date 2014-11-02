@@ -7,6 +7,8 @@ class Map < ActiveRecord::Base
 
   belongs_to :author
   belongs_to :project
+  has_many :uploads, as: :uploadable
+  has_many :images, as: :imageable
 
 #==============
 #= FRIENDLY_ID
