@@ -31,6 +31,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'coveralls', require: false
   gem 'guard-minitest'
-  gem 'minitest-spec-rails'
   gem 'minitest-reporters'
+  gem 'minitest-spec-rails'
+  gem 'mocha'
 end
