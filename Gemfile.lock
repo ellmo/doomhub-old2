@@ -141,6 +141,8 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.2)
       pry (>= 0.9.10)
+    pundit (0.3.0)
+      activesupport (>= 3.0.0)
     rabl (0.10.1)
       activesupport (>= 2.3.14)
     rack (1.5.2)
@@ -238,6 +240,7 @@ DEPENDENCIES
   paranoia (~> 2.0)
   pg
   pry-rails
+  pundit
   rabl
   rails (~> 4.1.0)
   redcarpet

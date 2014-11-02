@@ -15,13 +15,12 @@ gem 'kaminari'
 gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'paranoia', '~> 2.0'
 gem 'pry-rails'
+gem 'pundit'
 gem 'rabl'
 gem 'redcarpet'
 gem 'sass'
 gem 'yell-rails'
 
-# Gems used only for assets and not required
-# in production environments by default.
 group :assets do
   gem 'sass-rails'
   gem 'uglifier'
