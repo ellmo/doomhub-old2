@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
 private
 
   def user_not_authorized
-    response.status = 401
-    response.body = {errcode: 401}.to_json
+    head :unauthorized
   end
 end
