@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   get 'home/index'
+
+  resources :projects, only: :create
 end

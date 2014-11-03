@@ -1,6 +1,8 @@
 class Project < ActiveRecord::Base
   include SlugUrlNameChecker
 
+  # attr_accessible :name, :user_id, :url_name, :description
+
 #========
 #= ASSOC
 #======
