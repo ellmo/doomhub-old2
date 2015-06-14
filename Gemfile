@@ -30,8 +30,8 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'coveralls', require: false
-  gem 'guard-minitest'
-  gem 'minitest-reporters'
-  gem 'minitest-spec-rails'
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
   gem 'mocha'
+  gem 'rspec-rails'
 end
