@@ -1,8 +1,0 @@
-dtwid_zip:
-  name: test zip file
-  user: ellmo
-  uploadable: dtwid
-  archive_file_name: wadfile.zip
-  archive_content_type: application/zip
-  archive_file_size: 209
-  archive_updated_at: <%= Time.now %>
