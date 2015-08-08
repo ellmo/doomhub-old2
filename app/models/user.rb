@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 #======
 
   has_one :author
+  has_one :role
   has_many :projects
   has_many :maps, through: :author
 
